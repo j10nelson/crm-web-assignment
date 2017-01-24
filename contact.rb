@@ -1,23 +1,22 @@
 class Contact
-    attr_accessor :first_name, :last_name, :email, :phone, :note
+    attr_accessor :first_name, :last_name, :email, :note
     attr_reader :id
 
     @@contacts = []
     @@next_id = 1000
 
-    def initialize(first_name, last_name, email, phone, note)
+    def initialize(first_name, last_name, email, note)
         @id = @@next_id # add the unique ID to the new contact
         @first_name = first_name
         @last_name = last_name
         @email = email
-        @phone = phone
         @note = note
 
         @@next_id += 1 # increment the unique id counter
     end
 
-    def self.create(first_name, last_name, email, phone, note)
-        new_contact = new(first_name, last_name, email, phone, note) # 1. initialize new contact
+    def self.create(first_name, last_name, email, note)
+        new_contact = new(first_name, last_name, email, note) # 1. initialize new contact
         @@contacts << new_contact # 2. add contact to contacts array
         new_contact # returns the new contact
     end
@@ -45,8 +44,6 @@ class Contact
             self.first_name = new_value
         elsif attribute == 'last_name'
             self.last_name = new_value
-        elsif attribute == 'phone'
-            self.phone = new_value
         elsif attribute == 'note'
             self.note = new_value
         end
@@ -72,9 +69,6 @@ class Contact
                 search_value = value
             elsif attribute == 'email'
                 search_by = contact.email
-                search_value = value
-            elsif attribute == 'phone'
-                search_by = contact.phone
                 search_value = value
             elsif attribute == 'note'
                 search_by = contact.note
