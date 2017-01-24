@@ -1,11 +1,11 @@
 require 'sinatra'
 require_relative 'contact'
 
-# Creating some fake data
-Contact.create('Mark', 'Zuckerberg', 'mark@facebook.com', 'CEO')
-Contact.create('Sergey', 'Brin', 'sergey@google.com', 'Co-Founder')
-Contact.create('Steve', 'Jobs', 'steve@apple.com', 'Visionary')
-#Done creating fake data
+# # Creating some fake data
+# Contact.create('Mark', 'Zuckerberg', 'mark@facebook.com', 'CEO')
+# Contact.create('Sergey', 'Brin', 'sergey@google.com', 'Co-Founder')
+# Contact.create('Steve', 'Jobs', 'steve@apple.com', 'Visionary')
+# #Done creating fake data
 
 
 get '/' do
@@ -19,6 +19,13 @@ get '/contacts' do
   erb :contacts
 end
 
+post '/contacts' do
+  Contact.create(params[:first_name], params[:last_name], params[:email], params[:note])
+
+  redirect to('/contacts')
+
+end
+
 get '/contacts/new' do
-  erb :add
+  erb :new
 end

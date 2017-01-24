@@ -1,16 +1,9 @@
-<!doctype html>
+<h1>Create new Contact</h1>
 
-<html lang="en">
-<head>
-  <meta charset="utf-8">
-  <title>Add New Contacts</title>
-  <link rel="stylesheet" href="css/styles.css">
-</head>
-
-<body>
-  <script src="js/scripts.js"></script>
-  <h1>Add New Contacts</h1>
-
-
-</body>
-</html>
+<form action='/contacts' method='post'>
+  <input type='text' name='first_name'>
+  <input type='text' name='last_name'>
+  <input type='text' name='email'>
+  <input type='text' name='note'>
+  <input type='submit' value='New Contact'>
+</form>
