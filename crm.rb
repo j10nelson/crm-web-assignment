@@ -4,5 +4,7 @@
 require 'sinatra'
 
 get '/' do
-  'Main Menu'
+  @crm_app_name = "Justin's CRM"
+  erb :index
+  erb :contacts
 end
